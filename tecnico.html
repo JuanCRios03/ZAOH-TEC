@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="theme-color" content="#EE4A31">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no">
+    <!-- Meta tags para control de cache -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>ZAOH-TEC - Dibujo Técnico</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" type="image/jpeg" href="assets/images/zaoh-tec-logo.jpg">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/zaoh-tec-logo.jpg">
+    <link rel="manifest" href="manifest.json">
+    <link rel="shortcut icon" type="image/jpeg" href="assets/images/zaoh-tec-logo.jpg">
+    <link rel="apple-touch-icon" href="assets/images/zaoh-tec-logo.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css?v=1.0.3">
+</head>
+<body class="technical-page">
+    <!-- Contenedor de fondo dinámico: gradientes y blobs interactivos -->
+    <div class="background-container" aria-hidden="true">
+        <div class="animated-gradient"></div>
+        <div class="blobs">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
+        </div>
+        <!-- Elementos técnicos de fondo -->
+        <div class="technical-background">
+            <div class="grid-lines"></div>
+            <div class="construction-lines">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+                <div class="line line-4"></div>
+            </div>
+            <div class="technical-circles">
+                <div class="circle circle-1"></div>
+                <div class="circle circle-2"></div>
+                <div class="circle circle-3"></div>
+            </div>
+            <div class="compass-decoration"></div>
+        </div>
+    </div>
+
+
+    <header>
+        <nav class="main-nav">
+            <div class="nav-left">
+                <a href="index.html">
+                    <img src="assets/images/zaoh-tec-logo.png" alt="ZAOH-TEC Logo" class="nav-logo">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Abrir menú">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-inicio"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="tecnico.html" class="nav-tecnico active"><i class="fas fa-cog"></i> Técnico</a></li>
+                <li><a href="artistica.html" class="nav-artistica"><i class="fas fa-paint-brush"></i> Artística</a></li>
+                <li><a href="teorico.html" class="nav-teorico"><i class="fas fa-book"></i> Teórico</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section-content">
+            <h2 class="section-title">Dibujo Técnico</h2>
+            
+            <!-- Introducción al Dibujo Técnico -->
+            <div class="intro-section">
+                <p class="intro-text">
+                    El dibujo técnico es el lenguaje universal de la ingeniería y el diseño. Es una herramienta fundamental que nos permite representar objetos y estructuras con precisión y detalle, siguiendo normas estandarizadas. A través de vistas, perspectivas y acotaciones, podemos comunicar ideas complejas de manera clara y precisa, permitiendo la creación y fabricación de todo tipo de objetos, desde pequeñas piezas hasta grandes edificios.
+                </p>
+            </div>
+
+            <!-- Sección de Herramientas Técnicas -->
+            <div class="technical-tools-section">
+                <h3>Herramientas Esenciales</h3>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-icon compass-icon">
+                            <img src="assets/images/compas.png" alt="Compás" class="tool-image">
+                        </div>
+                        <h4>Compás</h4>
+                        <p>Para trazar círculos y arcos con precisión perfecta</p>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon square-icon">
+                            <img src="assets/images/escuadras.png" alt="Escuadras" class="tool-image">
+                        </div>
+                        <h4>Escuadras</h4>
+                        <p>Instrumentos para trazar líneas perpendiculares y ángulos precisos</p>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon ruler-icon">
+                            <img src="assets/images/regla graduada.webp" alt="Regla Graduada" class="tool-image">
+                        </div>
+                        <h4>Regla Graduada</h4>
+                        <p>Para mediciones exactas y trazado de líneas rectas</p>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon caliper-icon">
+                            <img src="assets/images/Lapices.jpg" alt="Lapices de diferente dureza" class="tool-image">
+                        </div>
+                        <h4>Lapices</h4>
+                        <p>Se utilizan diferentes durezas, para lograr trazos adecuados según la necesidad.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Galería de imágenes -->
+            <div class="gallery-section">
+                <h3>Galería de Ejemplos</h3>
+                <div class="carousel-container">
+                    <div class="carousel-wrapper">
+                        <div class="carousel-slide">
+                            <img src="assets/images/DibujoTecnico.jpg" alt="Dibujo Técnico - Ejemplo Principal" class="carousel-img rotated-img">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="assets/images/DibujoTecnico1.jpg" alt="Dibujo Técnico 1" class="carousel-img rotated-img">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="assets/images/DibujoTecnico2.jpg" alt="Dibujo Técnico 2" class="carousel-img rotated-img">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="assets/images/DibujoTecnico3.jpg" alt="Dibujo Técnico 3" class="carousel-img rotated-img">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="assets/images/DibujoTecnico4.jpg" alt="Dibujo Técnico 4" class="carousel-img rotated-img">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="assets/images/DibujoTecnico5.jpg" alt="Dibujo Técnico 5" class="carousel-img rotated-img">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="assets/images/DibujoTecnico6.jpg" alt="Dibujo Técnico 6" class="carousel-img">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="assets/images/DibujoTecnico7.jpg" alt="Dibujo Técnico 7" class="carousel-img">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="assets/images/DibujoTecnico8.jpg" alt="Dibujo Técnico 8" class="carousel-img">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="assets/images/DibujoTecnico9.jpg" alt="Dibujo Técnico 9" class="carousel-img">
+                        </div>
+                    </div>
+                    <button class="carousel-button prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-button next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="carousel-dots"></div>
+                </div>
+            </div>
+
+            <!-- Sección de Videos Técnicos -->
+            <div class="videos-section">
+                <h3><i class="fas fa-play-circle"></i> Videos Técnicos Especializados</h3>
+                <p class="videos-intro">Domina los fundamentos del dibujo técnico con estos tutoriales profesionales sobre perspectiva isométrica.</p>
+                
+                <div class="videos-grid">
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/daDwoPgdSKY" 
+                                    title="Perspectiva Isométrica desde Vistas" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="video-info">
+                            <h4><i class="fas fa-cube"></i> Perspectiva Isométrica desde Vistas</h4>
+                            <p>Aprende a construir <strong>perspectivas isométricas</strong> partiendo de las vistas ortogonales (planta, alzado y perfil). Domina la transformación de proyecciones bidimensionales a representaciones tridimensionales.</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/GDlMv9AHVkQ" 
+                                    title="Cubo Isométrico con Rampa" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="video-info">
+                            <h4><i class="fas fa-drafting-compass"></i> Cubo Isométrico con Rampa Inclinada</h4>
+                            <p>Construye un <strong>cubo isométrico</strong> con elementos inclinados y rampas a <strong>30 grados</strong>. Aprende las técnicas para representar superficies inclinadas, intersecciones y elementos arquitectónicos complejos en proyección isométrica técnica.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sopa de Letras -->
+            <div class="word-search-section">
+                <h3>Sopa de Letras - Conceptos de Dibujo Técnico</h3>
+                <div class="word-search-container">
+                    <div id="word-search-game"></div>
+                    <div class="word-list">
+                        <h4>Palabras a encontrar:</h4>
+                        <ul id="word-list">
+                            <li>CUBO</li>
+                            <li>ISOMETRICO</li>
+                            <li>VISTA LATERAL</li>
+                            <li>PROYECCION</li>
+                            <li>EJES</li>
+                            <li>PLANOS</li>
+                            <li>FIGURAS</li>
+                            <li>SOMBREADO</li>
+                            <li>AREA</li>
+                            <li>DIMENSION</li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Botón para Test de Perspectiva -->
+            <div class="perspective-test-section">
+                <div class="test-intro">
+                    <h3>¿Quieres ver tu Test de Perspectiva?</h3>
+                    <p>Pon a prueba tus conocimientos de vistas isométricas. Observa diferentes vistas de piezas técnicas y selecciona la respuesta correcta.</p>
+                    <div class="test-features">
+                        <div class="feature-item">
+                            <i class="fas fa-eye"></i>
+                            <span>6 ejercicios de perspectiva</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-trophy"></i>
+                            <span>Sistema de puntuación</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Seguimiento de progreso</span>
+                        </div>
+                    </div>
+                </div>
+                <button id="open-perspective-test" class="perspective-test-btn">
+                    <i class="fas fa-play-circle"></i>
+                    <span>Iniciar Test de Perspectiva</span>
+                    <i class="fas fa-external-link-alt"></i>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Sección del Test de Perspectiva (oculta inicialmente) -->
+    <section id="test-perspectiva-section" class="test-section" style="display: none;">
+        <div class="test-header">
+            <div class="test-header-content">
+                <div class="test-title">
+                    <i class="fas fa-eye"></i>
+                    <h1>Test de Perspectiva - Vistas Técnicas</h1>
+                </div>
+                <button id="close-test" class="close-test-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    Volver al Técnico
+                </button>
+            </div>
+        </div>
+
+        <div class="test-content">
+            <div class="games-grid">
+                <!-- Juego 1 -->
+                <div class="view-game" data-game="1">
+                    <div class="game-header">
+                        <div class="game-status" id="status-1">
+                            <span class="score">Puntaje: 0</span>
+                        </div>
+                    </div>
+                    
+                    <div class="game-content">
+                        <div class="question-view">
+                            <h5>Analiza la perspectiva y selecciona la representación correcta:</h5>
+                            <div class="main-view">
+                                <div class="axonometric-view">
+                                    <img src="assets/images/VistaPunto1.jpg" alt="Vista Isométrica de la pieza" class="view-image">
+                                </div>
+                            </div>
+                            <p class="instruction">Haz clic en la vista correcta:</p>
+                        </div>
+                        
+                        <div class="options-grid">
+                            <div class="option-view" data-option="A" data-correct="false">
+                                <div class="view-label">Opción A</div>
+                                <div class="dihedral-view">
+                                    <img src="assets/images/Respuesta2.jpg" alt="Opción A" class="view-image zoom-image">
+                                </div>
+                            </div>
+                            <div class="option-view" data-option="B" data-correct="true">
+                                <div class="view-label">Opción B</div>
+                                <div class="dihedral-view">
+                                    <img src="assets/images/Respuesta1.jpg" alt="Opción B" class="view-image zoom-image">
+                                </div>
+                            </div>
+                            <div class="option-view" data-option="C" data-correct="false">
+                                <div class="view-label">Opción C</div>
+                                <div class="dihedral-view">
+                                    <img src="assets/images/Respuesta5.jpg" alt="Opción C" class="view-image zoom-image">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="game-result" id="result-1" style="display: none;">
+                            <div class="result-message"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Juego 2 -->
+                <div class="view-game" data-game="2">
+                    <div class="game-header">
+                        <div class="game-status" id="status-2">
+                            <span class="score">Puntaje: 0</span>
+                        </div>
+                    </div>
+                    
+                    <div class="game-content">
+                        <div class="question-view">
+                            <h5>Identifica la vista técnica correspondiente:</h5>
+                            <div class="main-view">
+                                <div class="axonometric-view">
+                                    <img src="assets/images/VistaPunto2.jpg" alt="Vista Isométrica de la pieza 2" class="view-image">
+                                </div>
+                            </div>
+                            <p class="instruction">Haz clic en la vista correcta:</p>
+                        </div>
+                        
+                        <div class="options-grid">
+                            <div class="option-view" data-option="A" data-correct="false">
+                                <div class="view-label">Opción A</div>
+                                <div class="dihedral-view">
+                                    <img src="assets/images/Respuesta6.jpg" alt="Opción A" class="view-image zoom-image">
+                                </div>
+                            </div>
+                            <div class="option-view" data-option="B" data-correct="false">
+                                <div class="view-label">Opción B</div>
+                                <div class="dihedral-view">
+                                    <img src="assets/images/Respuesta7.jpg" alt="Opción B" class="view-image zoom-image">
+                                </div>
+                            </div>
+                            <div class="option-view" data-option="C" data-correct="true">
+                                <div class="view-label">Opción C</div>
+                                <div class="dihedral-view">
+                                    <img src="assets/images/Respuesta2.jpg" alt="Opción C" class="view-image zoom-image">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="game-result" id="result-2" style="display: none;">
+                            <div class="result-message"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Juego 3 -->
+                <div class="view-game" data-game="3">
+                    <div class="game-header">
+                        <div class="game-status" id="status-3">
+                            <span class="score">Puntaje: 0</span>
+                        </div>
+                    </div>
+                    
+                    <div class="game-content">
+                        <div class="question-view">
+                            <h5>Determina la proyección correcta de esta pieza:</h5>
+                            <div class="main-view">
+                                <div class="axonometric-view">
+                                    <img src="assets/images/VistaPunto3.jpg" alt="Vista Isométrica de la pieza 3" class="view-image">
+                                </div>
+                            </div>
+                            <p class="instruction">Haz clic en la vista correcta:</p>
+                        </div>
+                        
+                        <div class="options-grid">
+                            <div class="option-view" data-option="A" data-correct="true">
+                                <div class="view-label">Opción A</div>
+                                <div class="dihedral-view">
+                                    <img src="assets/images/Respuesta3.jpg" alt="Opción A" class="view-image">
+                                </div>
+                            </div>
+                            <div class="option-view" data-option="B" data-correct="false">
+                                <div class="view-label">Opción B</div>
+                                <div class="dihedral-view">
+                                    <img src="assets/images/Respuesta10.jpg" alt="Opción B" class="view-image">
+                                </div>
+                            </div>
+                            <div class="option-view" data-option="C" data-correct="false">
+                                <div class="view-label">Opción C</div>
+                                <div class="dihedral-view">
+                                    <img src="assets/images/Respuesta8.jpg" alt="Opción C" class="view-image">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="game-result" id="result-3" style="display: none;">
+                            <div class="result-message"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Juego 4 -->
+                <div class="view-game" data-game="4">
+                    <div class="game-header">
+                        <div class="game-status" id="status-4">
+                            <span class="score">Puntaje: 0</span>
+                        </div>
+                    </div>
+                    
+                    <div class="game-content">
+                        <div class="question-view">
+                            <h5>¿Cuál es la representación isometrica correcta?</h5>
+                            <div class="main-view">
+                                <div class="axonometric-view">
+                                    <img src="assets/images/VistaPunto4.jpg" alt="Vista Isométrica de la pieza 4" class="view-image">
+                                </div>
+                            </div>
+                            <p class="instruction">Haz clic en la vista correcta:</p>
+                        </div>
+                        
+                        <div class="options-grid">
+                            <div class="option-view" data-option="A" data-correct="false">
+                                <div class="view-label">Opción A</div>
+                                <div class="dihedral-view">
+                                    <img src="assets/images/Respuesta5.jpg" alt="Opción A" class="view-image">
+                                </div>
+                            </div>
+                            <div class="option-view" data-option="B" data-correct="true">
+                                <div class="view-label">Opción B</div>
+                                <div class="dihedral-view">
+                                    <img src="assets/images/Respuesta4.jpg" alt="Opción B" class="view-image">
+                                </div>
+                            </div>
+                            <div class="option-view" data-option="C" data-correct="false">
+                                <div class="view-label">Opción C</div>
+                                <div class="dihedral-view">
+                                    <img src="assets/images/Respuesta6.jpg" alt="Opción C" class="view-image">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="game-result" id="result-4" style="display: none;">
+                            <div class="result-message"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Juego 5 -->
+                <div class="view-game" data-game="5">
+                    <div class="game-header">
+                        <div class="game-status" id="status-5">
+                            <span class="score">Puntaje: 0</span>
+                        </div>
+                    </div>
+                    
+                    <div class="game-content">
+                        <div class="question-view">
+                            <h5>Observa la perspectiva y elige la opción correcta:</h5>
+                            <div class="main-view">
+                                <div class="axonometric-view">
+                                    <img src="assets/images/VistaPunto5.jpg" alt="Vista Isométrica de la pieza 5" class="view-image">
+                                </div>
+                            </div>
+                            <p class="instruction">Haz clic en la vista correcta:</p>
+                        </div>
+                        
+                        <div class="options-grid">
+                            <div class="option-view" data-option="A" data-correct="false">
+                                <div class="view-label">Opción A</div>
+                                <div class="dihedral-view">
+                                    <img src="assets/images/Respuesta7.jpg" alt="Opción A" class="view-image">
+                                </div>
+                            </div>
+                            <div class="option-view" data-option="B" data-correct="false">
+                                <div class="view-label">Opción B</div>
+                                <div class="dihedral-view">
+                                    <img src="assets/images/Respuesta8.jpg" alt="Opción B" class="view-image">
+                                </div>
+                            </div>
+                            <div class="option-view" data-option="C" data-correct="true">
+                                <div class="view-label">Opción C</div>
+                                <div class="dihedral-view">
+                                    <img src="assets/images/Respuesta5.jpg" alt="Opción C" class="view-image">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="game-result" id="result-5" style="display: none;">
+                            <div class="result-message"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Juego 6 -->
+                <div class="view-game" data-game="6">
+                    <div class="game-header">
+                        <div class="game-status" id="status-6">
+                            <span class="score">Puntaje: 0</span>
+                        </div>
+                    </div>
+                    
+                    <div class="game-content">
+                        <div class="question-view">
+                            <h5>Analiza la figura isométrica y selecciona la vista correcta:</h5>
+                            <div class="main-view">
+                                <div class="axonometric-view">
+                                    <img src="assets/images/VistaPunto6.jpg" alt="Vista Isométrica de la pieza 6" class="view-image">
+                                </div>
+                            </div>
+                            <p class="instruction">Haz clic en la vista correcta:</p>
+                        </div>
+                        
+                        <div class="options-grid">
+                            <div class="option-view" data-option="A" data-correct="true">
+                                <div class="view-label">Opción A</div>
+                                <div class="dihedral-view">
+                                    <img src="assets/images/Respuesta6.jpg" alt="Opción A" class="view-image">
+                                </div>
+                            </div>
+                            <div class="option-view" data-option="B" data-correct="false">
+                                <div class="view-label">Opción B</div>
+                                <div class="dihedral-view">
+                                    <img src="assets/images/Respuesta9.jpg" alt="Opción B" class="view-image">
+                                </div>
+                            </div>
+                            <div class="option-view" data-option="C" data-correct="false">
+                                <div class="view-label">Opción C</div>
+                                <div class="dihedral-view">
+                                    <img src="assets/images/Respuesta10.jpg" alt="Opción C" class="view-image">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="game-result" id="result-6" style="display: none;">
+                            <div class="result-message"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Juego 7 -->
+                <div class="view-game" data-game="7">
+                    <div class="game-header">
+                        <div class="game-status" id="status-7">
+                            <span class="score">Puntaje: 0</span>
+                        </div>
+                    </div>
+                    
+                    <div class="game-content">
+                        <div class="question-view">
+                            <h5>¿Qué representación técnica es la correcta?</h5>
+                            <div class="main-view">
+                                <div class="axonometric-view">
+                                    <img src="assets/images/VistaPunto7.jpg" alt="Vista Isométrica de la pieza 7" class="view-image">
+                                </div>
+                            </div>
+                            <p class="instruction">Haz clic en la vista correcta:</p>
+                        </div>
+                        
+                        <div class="options-grid">
+                            <div class="option-view" data-option="A" data-correct="true">
+                                <div class="view-label">Opción A</div>
+                                <div class="dihedral-view">
+                                    <img src="assets/images/Respuesta7.jpg" alt="Opción A" class="view-image">
+                                </div>
+                            </div>
+                            <div class="option-view" data-option="B" data-correct="false">
+                                <div class="view-label">Opción B</div>
+                                <div class="dihedral-view">
+                                    <img src="assets/images/Respuesta2.jpg" alt="Opción B" class="view-image">
+                                </div>
+                            </div>
+                            <div class="option-view" data-option="C" data-correct="false">
+                                <div class="view-label">Opción C</div>
+                                <div class="dihedral-view">
+                                    <img src="assets/images/Respuesta1.jpg" alt="Opción C" class="view-image">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="game-result" id="result-7" style="display: none;">
+                            <div class="result-message"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Juego 8 -->
+                <div class="view-game" data-game="8">
+                    <div class="game-header">
+                        <div class="game-status" id="status-8">
+                            <span class="score">Puntaje: 0</span>
+                        </div>
+                    </div>
+                    
+                    <div class="game-content">
+                        <div class="question-view">
+                            <h5>Analiza la pieza y determina la vista correcta:</h5>
+                            <div class="main-view">
+                                <div class="axonometric-view">
+                                    <img src="assets/images/VistaPunto8.jpg" alt="Vista Isométrica de la pieza 8" class="view-image">
+                                </div>
+                            </div>
+                            <p class="instruction">Haz clic en la vista correcta:</p>
+                        </div>
+                        
+                        <div class="options-grid">
+                            <div class="option-view" data-option="A" data-correct="false">
+                                <div class="view-label">Opción A</div>
+                                <div class="dihedral-view">
+                                    <img src="assets/images/Respuesta10.jpg" alt="Opción A" class="view-image">
+                                </div>
+                            </div>
+                            <div class="option-view" data-option="B" data-correct="true">
+                                <div class="view-label">Opción B</div>
+                                <div class="dihedral-view">
+                                    <img src="assets/images/Respuesta8.jpg" alt="Opción B" class="view-image">
+                                </div>
+                            </div>
+                            <div class="option-view" data-option="C" data-correct="false">
+                                <div class="view-label">Opción C</div>
+                                <div class="dihedral-view">
+                                    <img src="assets/images/Respuesta7.jpg" alt="Opción C" class="view-image">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="game-result" id="result-8" style="display: none;">
+                            <div class="result-message"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Juego 9 -->
+                <div class="view-game" data-game="9">
+                    <div class="game-header">
+                        <div class="game-status" id="status-9">
+                            <span class="score">Puntaje: 0</span>
+                        </div>
+                    </div>
+                    
+                    <div class="game-content">
+                        <div class="question-view">
+                            <h5>Interpreta la perspectiva y elige la opción correcta:</h5>
+                            <div class="main-view">
+                                <div class="axonometric-view">
+                                    <img src="assets/images/VistaPunto9.jpg" alt="Vista Isométrica de la pieza 9" class="view-image">
+                                </div>
+                            </div>
+                            <p class="instruction">Haz clic en la vista correcta:</p>
+                        </div>
+                        
+                        <div class="options-grid">
+                            <div class="option-view" data-option="A" data-correct="false">
+                                <div class="view-label">Opción A</div>
+                                <div class="dihedral-view">
+                                    <img src="assets/images/Respuesta10.jpg" alt="Opción A" class="view-image">
+                                </div>
+                            </div>
+                            <div class="option-view" data-option="B" data-correct="false">
+                                <div class="view-label">Opción B</div>
+                                <div class="dihedral-view">
+                                    <img src="assets/images/Respuesta2.jpg" alt="Opción B" class="view-image">
+                                </div>
+                            </div>
+                            <div class="option-view" data-option="C" data-correct="true">
+                                <div class="view-label">Opción C</div>
+                                <div class="dihedral-view">
+                                    <img src="assets/images/Respuesta9.jpg" alt="Opción C" class="view-image">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="game-result" id="result-9" style="display: none;">
+                            <div class="result-message"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Juego 10 -->
+                <div class="view-game" data-game="10">
+                    <div class="game-header">
+                        <div class="game-status" id="status-10">
+                            <span class="score">Puntaje: 0</span>
+                        </div>
+                    </div>
+                    
+                    <div class="game-content">
+                        <div class="question-view">
+                            <h5>Analiza la figura isometrica y selecciona la respuesta correcta:</h5>
+                            <div class="main-view">
+                                <div class="axonometric-view">
+                                    <img src="assets/images/VistaPunto10.jpg" alt="Vista Isométrica de la pieza 10" class="view-image">
+                                </div>
+                            </div>
+                            <p class="instruction">Haz clic en la vista correcta:</p>
+                        </div>
+                        
+                        <div class="options-grid">
+                            <div class="option-view" data-option="A" data-correct="false">
+                                <div class="view-label">Opción A</div>
+                                <div class="dihedral-view">
+                                    <img src="assets/images/Respuesta3.jpg" alt="Opción A" class="view-image">
+                                </div>
+                            </div>
+                            <div class="option-view" data-option="B" data-correct="true">
+                                <div class="view-label">Opción B</div>
+                                <div class="dihedral-view">
+                                    <img src="assets/images/Respuesta10.jpg" alt="Opción B" class="view-image">
+                                </div>
+                            </div>
+                            <div class="option-view" data-option="C" data-correct="false">
+                                <div class="view-label">Opción C</div>
+                                <div class="dihedral-view">
+                                    <img src="assets/images/Respuesta1.jpg" alt="Opción C" class="view-image">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="game-result" id="result-10" style="display: none;">
+                            <div class="result-message"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resumen general de puntuación -->
+            <div class="overall-score">
+                <h4>Progreso General</h4>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="overall-progress"></div>
+                </div>
+                <div class="score-summary">
+                    <span>Juegos completados: <strong id="completed-games">0/10</strong></span>
+                    <span>Puntuación total: <strong id="total-score">0/10000</strong></span>
+                </div>
+                <div class="restart-test-container" id="restart-container" style="display: none;">
+                    <button id="restart-test-btn" class="restart-test-button" onclick="restartTest()">
+                        <i class="fas fa-redo"></i> Reiniciar Test
+                    </button>
+                </div>
+            </div>
+
+            <div class="test-footer">
+                <button id="back-to-tecnico" class="back-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    Volver a la sección técnica
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/main.js?v=1.0.3"></script>
+    <script src="js/scroll-shapes.js?v=1.0.3"></script>
+
+    <!-- Image Zoom Modal -->
+    <div id="imageZoomModal" class="image-zoom-modal">
+        <div class="zoom-content">
+            <span class="zoom-close" id="zoomClose">&times;</span>
+            <img id="zoomImage" class="zoom-image" src="" alt="">
+            <div id="zoomCaption" class="zoom-caption"></div>
+        </div>
+    </div>
+</body>
+</html>

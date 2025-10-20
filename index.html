@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="theme-color" content="#2AABE2">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no">
+    <!-- Meta tags para control de cache -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>ZAOH-TEC - Aprendizaje Interactivo</title>
+    <link rel="icon" type="image/jpeg" href="assets/images/zaoh-tec-logo.jpg    ">
+    <link rel="shortcut icon" type="image/jpeg" href="assets/images/zaoh-tec-logo.png">
+    <link rel="apple-touch-icon" href="assets/images/zaoh-tec-logo.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css?v=1.0.3">
+</head>
+<body>
+    <!-- Contenedor de fondo dinámico: gradientes y blobs interactivos -->
+    <div class="background-container" aria-hidden="true">
+        <div class="animated-gradient"></div>
+        <div class="blobs">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
+        </div>
+    </div>
+    <header>
+        <nav class="main-nav">
+            <div class="nav-left">
+                <img src="assets/images/zaoh-tec-logo.png" alt="ZAOH-TEC Logo" class="nav-logo" loading="lazy" decoding="async">
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Abrir menú">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-inicio active"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="tecnico.html" class="nav-tecnico"><i class="fas fa-cog"></i> Técnico</a></li>
+                <li><a href="artistica.html" class="nav-artistica"><i class="fas fa-paint-brush"></i> Artística</a></li>
+                <li><a href="teorico.html" class="nav-teorico"><i class="fas fa-book"></i> Teórico</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <img src="assets/images/zaoh-tec-logo.png" alt="ZAOH-TEC Logo Grande" class="hero-logo" loading="lazy" decoding="async">
+                <p class="hero-text">¡Descubre una forma <span class="text-highlight-red">divertida</span> e <span class="text-highlight-blue">interactiva</span> de aprender!</p>
+                <p class="hero-description">Explora el dibujo técnico, el arte y el dibujo teórico con videos, proyectos y actividades diseñadas especialmente para ti.</p>
+                <div class="hero-buttons">
+                    <a href="tecnico.html" class="btn-primary">¡Empezar a explorar!</a>
+                    <a href="artistica.html" class="btn-secondary">Ver Proyectos Creativos <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección "Por qué elegir ZAOH-TEC" -->
+        <section class="why-choose-us">
+            <h2 class="section-title">¿Por qué elegir ZAOH-TEC?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Claridad en cada paso</h3>
+                    <p>Explicaciones detalladas y fáciles de seguir para dominar el dibujo técnico.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Interactivo y dinámico</h3>
+                    <p>Aprende jugando con nuestras actividades interactivas.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Videos integrados</h3>
+                    <p>Tutoriales en video que complementan el aprendizaje visual.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Técnico y artístico</h3>
+                    <p>Integra el dibujo técnico, teórico y artístico para lograr un aprendizaje completo y equilibrado.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de navegación a las diferentes áreas -->
+        <section class="navigation-cards">
+            <div class="container">
+                <h2 class="section-title">Explora nuestras áreas de aprendizaje</h2>
+                <p class="section-subtitle">Descubre todo lo que ZAOH-TEC tiene para ti</p>
+                
+                <div class="nav-cards-carousel">
+                    <button class="nav-cards-nav prev" aria-label="Anterior" type="button">&#10094;</button>
+                    <div class="nav-cards-grid" data-slider>
+                        <!-- Tarjeta Técnico -->
+                        <a href="tecnico.html" class="nav-card nav-card-technical">
+                            <div class="nav-card-content">
+                                <div class="nav-card-icon">
+                                    <i class="fas fa-drafting-compass"></i>
+                                </div>
+                                <h3>Dibujo Técnico</h3>
+                                <p>Aprende las bases del dibujo técnico con herramientas, ejercicios interactivos y técnicas profesionales.</p>
+                                <div class="nav-card-features">
+                                    <span class="feature-tag">🔧 Herramientas</span>
+                                    <span class="feature-tag">🎯 Ejercicios</span>
+                                    <span class="feature-tag">📐 Técnicas</span>
+                                </div>
+                            </div>
+                            <div class="nav-card-button">
+                                <span>Comenzar</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </a>
+
+                        <!-- Tarjeta Artístico -->
+                        <a href="artistica.html" class="nav-card nav-card-artistic">
+                            <div class="nav-card-content">
+                                <div class="nav-card-icon">
+                                    <i class="fas fa-paint-brush"></i>
+                                </div>
+                                <h3>Dibujo Artístico</h3>
+                                <p>Desarrolla tu creatividad y habilidades artísticas con técnicas de sombreado, perspectiva y composición.</p>
+                                <div class="nav-card-features">
+                                    <span class="feature-tag">🎨 Creatividad</span>
+                                    <span class="feature-tag">✏️ Sombreado</span>
+                                    <span class="feature-tag">👁️ Perspectiva</span>
+                                </div>
+                            </div>
+                            <div class="nav-card-button">
+                                <span>Crear</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </a>
+
+                        <!-- Tarjeta Teórico -->
+                        <a href="teorico.html" class="nav-card nav-card-theory">
+                            <div class="nav-card-content">
+                                <div class="nav-card-icon">
+                                    <i class="fas fa-book-open"></i>
+                                </div>
+                                <h3>Fundamentos Teóricos</h3>
+                                <p>Domina la teoría del dibujo con conceptos, principios y conocimientos fundamentales.</p>
+                                <div class="nav-card-features">
+                                    <span class="feature-tag">📚 Conceptos</span>
+                                    <span class="feature-tag">🧠 Principios</span>
+                                    <span class="feature-tag">⚡ Fundamentos</span>
+                                </div>
+                            </div>
+                            <div class="nav-card-button">
+                                <span>Aprender</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </a>
+                    </div>
+                    <button class="nav-cards-nav next" aria-label="Siguiente" type="button">&#10095;</button>
+                </div>
+                <!-- NOTE: El contenido original de .nav-cards-grid permanece. Este wrapper será estilizado en CSS y JS detectará botones. -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+    </footer>
+
+    <script src="js/main.js?v=1.0.3"></script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no">
+    <!-- Meta tags para control de cache -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>ZAOH-TEC - Dibujo Teórico</title>
+    <link rel="icon" type="image/jpeg" href="assets/images/zaoh-tec-logo.jpg">
+    <link rel="shortcut icon" type="image/jpeg" href="assets/images/zaoh-tec-logo.jpg">
+    <link rel="apple-touch-icon" href="assets/images/zaoh-tec-logo.jpg">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css?v=1.0.3">
+</head>
+<body class="theoretical-page">
+    <!-- Contenedor de fondo dinámico: gradientes y blobs interactivos -->
+    <div class="background-container" aria-hidden="true">
+        <div class="animated-gradient"></div>
+        <div class="blobs">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
+        </div>
+    </div>
+    <header>
+        <nav class="main-nav">
+            <div class="nav-left">
+                <a href="index.html">
+                    <img src="assets/images/zaoh-tec-logo.jpg" alt="ZAOH-TEC Logo" class="nav-logo">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Abrir menú">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-inicio"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="tecnico.html" class="nav-tecnico"><i class="fas fa-cog"></i> Técnico</a></li>
+                <li><a href="artistica.html" class="nav-artistica"><i class="fas fa-paint-brush"></i> Artística</a></li>
+                <li><a href="teorico.html" class="nav-teorico active"><i class="fas fa-book"></i> Teórico</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section-content">
+            <h2 class="section-title">Dibujo Teórico</h2>
+            
+            <!-- Introducción al Dibujo Teórico -->
+            <div class="intro-section">
+                <p class="intro-text">
+                    El dibujo teórico comprende los fundamentos conceptuales del dibujo artístico y técnico que se estudian desde octavo hasta undécimo grado. Incluye principios de geometría aplicada, teoría del color, composición visual, perspectiva, y las bases matemáticas que sustentan tanto la expresión artística como el diseño técnico. Este conocimiento es esencial para desarrollar competencias en representación gráfica, análisis visual y comunicación a través del dibujo.
+                </p>
+            </div>
+
+            <!-- Contenido Teórico por Grados -->
+            <div class="theoretical-content">
+                
+                <!-- Octavo Grado -->
+                <div class="grade-section">
+                    <h3><i class="fas fa-graduation-cap"></i> Octavo Grado</h3>
+                    <div class="topics-grid">
+                        <div class="topic-card technical">
+                            <h4><i class="fas fa-cog"></i> Dibujo Técnico</h4>
+                            <ul>
+                                <li><strong>Fundamentos de dibujo, mano alzada:</strong> Técnicas básicas de trazo libre</li>
+                                <li><strong>Isometría de cajas rectas:</strong> Representación 3D de objetos rectangulares</li>
+                                <li><strong>Superficies inclinadas y oblicuas:</strong> Dibujo de planos angulados</li>
+                                <li><strong>Proyección de vistas de objetos:</strong> Vistas frontal, lateral y superior</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="topic-card artistic">
+                            <h4><i class="fas fa-paint-brush"></i> Dibujo Artístico</h4>
+                            <ul>
+                                <li><strong>Teoría gráfica de diseño:</strong> Principios básicos de composición visual</li>
+                                <li><strong>Técnica de carboncillo y sanguina:</strong> Dibujo con materiales secos</li>
+                                <li><strong>Figura humana:</strong> Anatomía y proporciones corporales</li>
+                                <li><strong>Historia del arte:</strong> Movimientos artísticos principales</li>
+                                <li><strong>Técnica de expresión pasteles:</strong> Uso de pasteles para crear texturas</li>
+                                <li><strong>Teoría del color:</strong> Círculo cromático y armonías</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Noveno Grado -->
+                <div class="grade-section">
+                    <h3><i class="fas fa-graduation-cap"></i> Noveno Grado</h3>
+                    <div class="topics-grid">
+                        <div class="topic-card technical">
+                            <h4><i class="fas fa-cog"></i> Dibujo Técnico</h4>
+                            <ul>
+                                <li><strong>Cajas isométricas construcción de óvalos:</strong> Formas curvas en perspectiva isométrica</li>
+                                <li><strong>Normas de acotado:</strong> Sistemas de medición y dimensionamiento</li>
+                                <li><strong>El volumen:</strong> Representación de formas tridimensionales</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="topic-card artistic">
+                            <h4><i class="fas fa-paint-brush"></i> Dibujo Artístico</h4>
+                            <ul>
+                                <li><strong>Tinta china:</strong> Técnica de dibujo con tinta negra</li>
+                                <li><strong>Diseño digital:</strong> Creación artística usando herramientas digitales</li>
+                                <li><strong>Elementos visuales:</strong> Punto, línea, plano, textura y color</li>
+                                <li><strong>Filigrana:</strong> Arte decorativo con líneas finas y delicadas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Décimo Grado -->
+                <div class="grade-section">
+                    <h3><i class="fas fa-graduation-cap"></i> Décimo Grado</h3>
+                    <div class="topics-grid">
+                        <div class="topic-card technical">
+                            <h4><i class="fas fa-cog"></i> Dibujo Técnico</h4>
+                            <ul>
+                                <li><strong>Planos seriados:</strong> Secuencias de cortes y secciones técnicas</li>
+                                <li><strong>Geometría descriptiva:</strong> Representación exacta de formas en el espacio</li>
+                                <li><strong>Escalas:</strong> Sistemas de proporción y reducción</li>
+                                <li><strong>Perspectiva aérea:</strong> Efectos atmosféricos en la distancia</li>
+                                <li><strong>Análisis de imágenes:</strong> Interpretación visual y crítica artística</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="topic-card artistic">
+                            <h4><i class="fas fa-paint-brush"></i> Dibujo Artístico</h4>
+                            <ul>
+                                <li><strong>Encuadernación:</strong> Arte de crear y decorar libros</li>
+                                <li><strong>Tipografía:</strong> Diseño y selección de tipos de letra</li>
+                                <li><strong>Acuarelas:</strong> Técnica de pintura con pigmentos transparentes</li>
+                                <li><strong>Ecolín:</strong> Técnica mixta con tintas y acuarelas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Undécimo Grado -->
+                <div class="grade-section">
+                    <h3><i class="fas fa-graduation-cap"></i> Undécimo Grado</h3>
+                    <div class="construction-section">
+                        <div class="construction-container">
+                            <div class="construction-icon">
+                                <i class="fas fa-hard-hat"></i>
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h4 class="construction-title">
+                                <i class="fas fa-hammer"></i>
+                                ¡EN CONSTRUCCIÓN!
+                                <i class="fas fa-wrench"></i>
+                            </h4>
+                            <p class="construction-text">
+                                🚧 <strong>Misterio del Futuro</strong> 🚧<br>
+                                El contenido de undécimo grado está siendo cuidadosamente diseñado...<br>
+                                <span class="highlight">¡El próximo año descubrirás qué increíbles proyectos te esperan!</span>
+                            </p>
+                            <div class="construction-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <span>Proyectos innovadores en desarrollo</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-rocket"></i>
+                                    <span>Técnicas avanzadas por revelar</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-star"></i>
+                                    <span>Experiencias únicas esperándote</span>
+                                </div>
+                            </div>
+                            <div class="countdown-text">
+                                <i class="fas fa-calendar-alt"></i>
+                                <strong>Próximamente en 2026...</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección de Video Teórico -->
+            <div class="videos-section theoretical-videos">
+                <h3><i class="fas fa-play-circle"></i> Fundamentos Teóricos del Arte</h3>
+                <p class="videos-intro">Explora los conceptos fundamentales y la evolución histórica del arte a través de este contenido educativo especializado.</p>
+                
+                <div class="videos-grid">
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/rUHxLrZwSIY" 
+                                    title="Historia del Arte en 10 Minutos" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="video-info">
+                            <h4><i class="fas fa-history"></i> Historia del Arte</h4>
+                            <p>Un recorrido fascinante por las <strong>épocas más importantes del arte</strong> desde el arte rupestre hasta la contemporaneidad. Descubre cómo evolucionaron los estilos artísticos, las técnicas y las corrientes que marcaron cada período histórico, desde el <strong>Renacimiento y Barroco</strong> hasta el <strong>Impresionismo y Arte Moderno</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Crucigrama -->
+            <div class="crossword-section">
+                <h3>Crucigrama - Conceptos de Dibujo</h3>
+                <div class="crossword-layout">
+                    <div class="crossword-grid-wrapper">
+                        <div class="crossword-grid" id="crossword-grid"></div>
+                        <div class="crossword-controls">
+                            <button id="check-crossword" class="crossword-btn">
+                                <i class="fas fa-check"></i> Verificar
+                            </button>
+                            <button id="clear-crossword" class="crossword-btn">
+                                <i class="fas fa-eraser"></i> Limpiar
+                            </button>
+                            <button id="show-solution" class="crossword-btn">
+                                <i class="fas fa-lightbulb"></i> Solución
+                            </button>
+                            <button id="regen-crossword" class="crossword-btn">
+                                <i class="fas fa-random"></i> Nuevo
+                            </button>
+                        </div>
+                        <div id="crossword-result" class="crossword-result" style="display:none;"></div>
+                    </div>
+                    <aside class="crossword-clues-side">
+                        <h4>Pistas</h4>
+                        <div class="clues-block">
+                            <h5>Horizontales</h5>
+                            <div class="clues-list" id="horizontal-clues"></div>
+                        </div>
+                        <div class="clues-block">
+                            <h5>Verticales</h5>
+                            <div class="clues-list" id="vertical-clues"></div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+    </footer>
+
+    <script src="js/main.js?v=1.0.3"></script>
+</body>
+</html>

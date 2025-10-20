@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="theme-color" content="#F387AB">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no">
+    <!-- Meta tags para control de cache -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>ZAOH-TEC - Dibujo Artístico</title>
+    <link rel="icon" type="image/jpeg" href="assets/images/zaoh-tec-logo.jpg">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/zaoh-tec-logo.jpg">
+    <link rel="manifest" href="manifest.json">
+    <link rel="shortcut icon" type="image/jpeg" href="assets/images/zaoh-tec-logo.jpg">
+    <link rel="apple-touch-icon" href="assets/images/zaoh-tec-logo.jpg">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css?v=1.0.3">
+</head>
+<body>
+    <!-- Contenedor de fondo dinámico: gradientes y blobs interactivos -->
+    <div class="background-container" aria-hidden="true">
+        <div class="animated-gradient"></div>
+        <div class="blobs">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
+        </div>
+        <!-- Elementos artísticos de fondo -->
+        <div class="artistic-background">
+            <div class="grid-lines"></div>
+            <div class="construction-lines">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+                <div class="line line-4"></div>
+            </div>
+            <div class="artistic-circles">
+                <div class="circle circle-1"></div>
+                <div class="circle circle-2"></div>
+                <div class="circle circle-3"></div>
+            </div>
+            <div class="brush-decoration"></div>
+        </div>
+    </div>
+    <header>
+        <nav class="main-nav">
+            <div class="nav-left">
+                <a href="index.html">
+                    <img src="assets/images/zaoh-tec-logo.png" alt="ZAOH-TEC Logo" class="nav-logo">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Abrir menú">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-inicio"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="tecnico.html" class="nav-tecnico"><i class="fas fa-cog"></i> Técnico</a></li>
+                <li><a href="artistica.html" class="nav-artistica active"><i class="fas fa-paint-brush"></i> Artística</a></li>
+                <li><a href="teorico.html" class="nav-teorico"><i class="fas fa-book"></i> Teórico</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section-content">
+            <h2 class="section-title">Dibujo Artístico</h2>
+            
+            <!-- Introducción al Dibujo Artístico -->
+            <div class="intro-section">
+                <p class="intro-text">
+                    El dibujo artístico es una forma de expresión que permite plasmar la creatividad y la sensibilidad del artista en el papel. A través de diferentes técnicas como el carboncillo, lápiz, acuarela o pastel, podemos crear obras que transmiten emociones, capturan la belleza de nuestro entorno y dan vida a nuestra imaginación. Este arte combina la observación detallada con la interpretación personal, permitiendo desarrollar un estilo único mientras se dominan aspectos fundamentales como la composición, el sombreado, la perspectiva y el manejo de la luz.
+                </p>
+            </div>
+
+            <!-- Sección de Herramientas Artísticas -->
+            <div class="artistic-tools-section">
+                <h3>Herramientas Esenciales</h3>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-icon pencil-icon">
+                            <img src="assets/images/Sanguina.jpg" alt="Sanguina" class="tool-image">
+                        </div>
+                        <h4>Sanguina</h4>
+                        <p>Pigmento natural de color rojizo-marrón, ideal para retratos y figuras humanas. Permite crear tonos cálidos y efectos de volumen con gran expresividad artística.</p>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon blending-icon">
+                            <img src="assets/images/carboncillo.webp" alt="Carboncillo" class="tool-image">
+                        </div>
+                        <h4>Carboncillo</h4>
+                        <p>Material de dibujo que proporciona trazos intensos y profundos. Perfecto para crear contrastes dramáticos, sombreados ricos y efectos expresivos en el dibujo artístico.</p>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon eraser-icon">
+                            <img src="assets/images/Acrilicos.jpg" alt="Acrílicos" class="tool-image">
+                        </div>
+                        <h4>Acrílicos</h4>
+                        <p>Pintura versátil de secado rápido que permite trabajar con transparencias y opacidades. Ideal para crear texturas, fondos y agregar color vibrante al dibujo artístico.</p>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon paper-icon">
+                            <img src="assets/images/papeles.png" alt="Papeles Artísticos" class="tool-image">
+                        </div>
+                        <h4>Papeles Artísticos</h4>
+                        <p>Se utilizan diferentes texturas y gramajes para lograr efectos adecuados según la técnica.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Galería de imágenes -->
+            <div class="gallery-section">
+                <h3>Galería de Ejemplos</h3>
+                <div class="carousel-container">
+                    <div class="carousel-wrapper">
+                        <div class="carousel-slide">
+                            <img src="assets/images/DibujoArtistico1.jpg" alt="Dibujo Artístico 1" class="carousel-img">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="assets/images/DibujoArtistico2.jpg" alt="Dibujo Artístico 2" class="carousel-img">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="assets/images/DibujoArtistico3.jpg" alt="Dibujo Artístico 3" class="carousel-img">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="assets/images/DibujoArtistico4.jpg" alt="Dibujo Artístico 4" class="carousel-img">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="assets/images/DibujoArtistico5.jpg" alt="Dibujo Artístico 5" class="carousel-img">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="assets/images/DibujoArtistico6.jpg" alt="Dibujo Artístico 6" class="carousel-img">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="assets/images/DibujoArtistico7.jpg" alt="Dibujo Artístico 7" class="carousel-img">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="assets/images/DibujoArtistico8.jpg" alt="Dibujo Artístico 8" class="carousel-img">
+                        </div>
+                    </div>
+                    <button class="carousel-button prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-button next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="carousel-dots"></div>
+                </div>
+            </div>
+
+            <!-- Sección de Videos Artísticos -->
+            <div class="videos-section">
+                <h3><i class="fas fa-play-circle"></i> Videos Inspiradores de Dibujo Artístico</h3>
+                <p class="videos-intro">Descubre técnicas y secretos del arte a través de estos videos seleccionados especialmente para ti.</p>
+                
+                <div class="videos-grid">
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/CyMVDYBleDk" 
+                                    title="Video de Dibujo Artístico 1" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="video-info">
+                            <h4><i class="fas fa-paint-brush"></i> Técnicas de Sombreado</h4>
+                            <p>Aprende las cinco técnicas fundamentales del sombreado. Domina estas técnicas para crear profundidad, volumen y realismo en tus dibujos artísticos.</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/ivdNulDcKBc" 
+                                    title="Video de Dibujo Artístico 2" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="video-info">
+                            <h4><i class="fas fa-shapes"></i> Elementos Visuales del Diseño</h4>
+                            <p>Descubre los siete elementos esenciales del diseño gráfico. Comprende cómo estos elementos trabajan juntos para crear composiciones visuales impactantes y efectivas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Juego de Buscar Parejas -->
+            <div class="memory-game-section">
+                <h3>Juego de Buscar Parejas - Arte y Creatividad</h3>
+                <div class="game-info">
+                    <div class="game-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Tiempo:</span>
+                            <span id="timer" class="stat-value">1:30</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Parejas:</span>
+                            <span id="pairs-found" class="stat-value">0/8</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Intentos:</span>
+                            <span id="attempts" class="stat-value">0</span>
+                        </div>
+                    </div>
+                    <div class="game-controls">
+                        <button id="start-game" class="game-btn start-btn">
+                            <i class="fas fa-play"></i> Iniciar Juego
+                        </button>
+                        <button id="restart-game" class="game-btn restart-btn" style="display: none;">
+                            <i class="fas fa-redo"></i> Reiniciar
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="memory-game-board" class="memory-game-board">
+                    <!-- Las cartas se generarán dinámicamente con JavaScript -->
+                </div>
+                
+                <!-- Mensaje de resultado del juego -->
+                <div id="game-result" class="memory-game-result" style="display: none;">
+                    <div class="result-message" id="result-message"></div>
+                    <div class="result-stats" id="result-stats"></div>
+                    <button id="close-result" class="close-result-btn">
+                        <i class="fas fa-times"></i> Cerrar
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+    </footer>
+
+    <script src="js/main.js?v=1.0.3"></script>
+</body>
+</html>
