@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no">
+    <!-- Meta tags para control de cache -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>ZAOH-TEC - Tablero de Dibujo</title>
+    <link rel="icon" type="image/jpeg" href="assets/images/zaoh-tec-logo.jpg">
+    <link rel="shortcut icon" type="image/jpeg" href="assets/images/zaoh-tec-logo.jpg">
+    <link rel="apple-touch-icon" href="assets/images/zaoh-tec-logo.jpg">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css?v=1.2.0">
+    <link rel="stylesheet" href="css/drawing-board.css?v=1.2.0">
+</head>
+<body class="theoretical-page">
+    <!-- Contenedor de fondo dinámico: gradientes y blobs interactivos -->
+    <div class="background-container" aria-hidden="true">
+        <div class="animated-gradient"></div>
+        <div class="blobs">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
+        </div>
+    </div>
+    <header>
+        <nav class="main-nav">
+            <div class="nav-left">
+                <a href="index.html">
+                    <img src="assets/images/zaoh-tec-logo.jpg" alt="ZAOH-TEC Logo" class="nav-logo">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Abrir menú">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-inicio"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="tecnico.html" class="nav-tecnico"><i class="fas fa-cog"></i> Técnico</a></li>
+                <li><a href="artistica.html" class="nav-artistica"><i class="fas fa-paint-brush"></i> Artística</a></li>
+                <li><a href="teorico.html" class="nav-teorico active"><i class="fas fa-book"></i> Teórico</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section-content">
+            <!-- Drawing Board Section -->
+            <div class="drawing-board-section">
+                <h2 class="section-title">Tablero de Dibujo Creativo</h2>
+                <div class="drawing-board-container">
+                    <div class="drawing-board-wrapper">
+                        <canvas id="drawing-canvas"></canvas>
+                        <div id="angle-indicator" class="angle-indicator" aria-hidden="true">0°</div>
+                        <!-- Regla overlay: intenta cargar regla.png, si falla usa regla graduada.webp -->
+                        <img id="ruler-image" src="assets/images/regla.png" alt="Regla" onerror="this.onerror=null; this.src='assets/images/regla graduada.webp'" />
+                    </div>
+                    <div class="drawing-controls">
+                        <div class="control-group">
+                            <button class="tool-btn active" data-tool="pencil">
+                                <i class="fas fa-pencil-alt"></i> Lápiz
+                            </button>
+                            <button class="tool-btn" data-tool="rectangle">
+                                <i class="fas fa-square"></i> Rectángulo
+                            </button>
+                            <button class="tool-btn" data-tool="circle">
+                                <i class="fas fa-circle"></i> Círculo
+                            </button>
+                            <button class="tool-btn" data-tool="line">
+                                <i class="fas fa-minus"></i> Línea
+                            </button>
+                        </div>
+                        <div class="control-group">
+                            <label for="color-picker">Color:</label>
+                            <input type="color" id="color-picker" value="#000000">
+                            <label for="line-width">Grosor:</label>
+                            <input type="range" id="line-width" min="1" max="20" value="2">
+                        </div>
+                        <div class="control-group">
+                            <button id="undo-btn" class="drawing-board-btn" title="Deshacer (Ctrl+Z)">
+                                <i class="fas fa-undo"></i> Deshacer
+                            </button>
+                            <button id="redo-btn" class="drawing-board-btn" title="Rehacer (Ctrl+Y)">
+                                <i class="fas fa-redo"></i> Rehacer
+                            </button>
+                            <button class="drawing-board-btn clear">
+                                <i class="fas fa-trash"></i> Limpiar
+                            </button>
+                        </div>
+                        <div class="control-group" style="align-items:center;gap:8px;">
+                            <label for="angle-input" style="font-size:0.9rem;">Ángulo (°):</label>
+                            <input id="angle-input" type="number" min="-360" max="360" step="1" value="0" style="width:80px;">
+                            <label style="display:inline-flex;align-items:center;gap:6px;margin-left:6px;">
+                                <input id="force-angle-checkbox" type="checkbox"> Fijar ángulo
+                            </label>
+                            <span id="forced-angle-display" style="min-width:40px;text-align:center;margin-left:6px;">0°</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/main.js?v=1.2.0"></script>
+    <script src="js/drawing-board.js?v=1.2.0"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const canvas = document.getElementById('drawing-canvas');
+            if (canvas) {
+                const drawingBoard = new DrawingBoard('drawing-canvas');
+                // vincular indicador de ángulo al tablero
+                const angleIndicator = document.getElementById('angle-indicator');
+                if (angleIndicator) drawingBoard.setAngleIndicator(angleIndicator);
+
+                // Angle input + force-angle checkbox (replaces the visual ruler)
+                const angleInput = document.getElementById('angle-input');
+                const forceAngleCheckbox = document.getElementById('force-angle-checkbox');
+                const forcedAngleDisplay = document.getElementById('forced-angle-display');
+                if (angleInput) {
+                    // initialize
+                    drawingBoard.setForcedAngle(Number(angleInput.value) || 0);
+                    if (forcedAngleDisplay) forcedAngleDisplay.textContent = (Number(angleInput.value) || 0) + '°';
+                    angleInput.addEventListener('input', (ev) => {
+                        const val = ev.target.value;
+                        const n = Number(val);
+                        if (!isNaN(n)) {
+                            drawingBoard.setForcedAngle(n);
+                            if (forcedAngleDisplay) forcedAngleDisplay.textContent = n + '°';
+                        }
+                    });
+                }
+                if (forceAngleCheckbox) {
+                    forceAngleCheckbox.addEventListener('change', (ev) => {
+                        drawingBoard.setForceAngleEnabled(!!ev.target.checked);
+                    });
+                }
+
+                // Undo / Redo buttons
+                const undoBtn = document.getElementById('undo-btn');
+                const redoBtn = document.getElementById('redo-btn');
+                if (undoBtn) undoBtn.addEventListener('click', () => drawingBoard.undo());
+                if (redoBtn) redoBtn.addEventListener('click', () => drawingBoard.redo());
+
+                // Keyboard shortcuts: Ctrl/Cmd+Z = undo, Ctrl/Cmd+Y or Ctrl/Cmd+Shift+Z = redo
+                window.addEventListener('keydown', (ev) => {
+                    const isMacCmd = ev.metaKey && !ev.ctrlKey;
+                    const isCtrl = ev.ctrlKey;
+                    if ((isCtrl || isMacCmd) && ev.key.toLowerCase() === 'z') {
+                        ev.preventDefault();
+                        if (ev.shiftKey) {
+                            drawingBoard.redo();
+                        } else {
+                            drawingBoard.undo();
+                        }
+                    }
+                    if ((isCtrl || isMacCmd) && (ev.key.toLowerCase() === 'y')) {
+                        ev.preventDefault();
+                        drawingBoard.redo();
+                    }
+                });
+
+                // Tool selection
+                const toolButtons = document.querySelectorAll('.tool-btn[data-tool]');
+                toolButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        toolButtons.forEach(btn => btn.classList.remove('active'));
+                        button.classList.add('active');
+                        drawingBoard.setTool(button.dataset.tool);
+                    });
+                });
+
+                // Color picker
+                const colorPicker = document.getElementById('color-picker');
+                colorPicker.addEventListener('input', (e) => {
+                    drawingBoard.setColor(e.target.value);
+                });
+
+                // Line width
+                const lineWidth = document.getElementById('line-width');
+                lineWidth.addEventListener('input', (e) => {
+                    drawingBoard.setLineWidth(e.target.value);
+                });
+
+                // Clear button
+                const clearButton = document.querySelector('.drawing-board-btn.clear');
+                clearButton.addEventListener('click', () => {
+                    // Borrar inmediatamente sin confirmación
+                    drawingBoard.clear();
+                });
+
+                // (visual ruler removed) — angle is controlled via the input and checkbox above
+
+                // Resize handling
+                window.addEventListener('resize', () => {
+                    canvas.width = canvas.offsetWidth;
+                    canvas.height = canvas.offsetHeight;
+                });
+            }
+        });
+    </script>
+</body>
+</html>

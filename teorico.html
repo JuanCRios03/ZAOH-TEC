@@ -17,7 +17,8 @@
     <link rel="apple-touch-icon" href="assets/images/zaoh-tec-logo.jpg">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css?v=1.0.3">
+    <link rel="stylesheet" href="css/styles.css?v=1.2.0">
+    <link rel="stylesheet" href="css/drawing-board.css?v=1.2.0">
 </head>
 <body class="theoretical-page">
     <!-- Contenedor de fondo dinámico: gradientes y blobs interactivos -->
@@ -243,13 +244,68 @@
                         </div>
                     </aside>
                 </div>
+                
+                <!-- Botón para ir al tablero de dibujo -->
+                <div class="drawing-board-link-container" style="text-align: center; margin-top: 2rem;">
+                    <a href="tablero.html" class="drawing-board-link btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 1.2rem; padding: 1rem 2rem;">
+                        <i class="fas fa-paint-brush"></i>
+                        Ir al Tablero de Dibujo
+                    </a>
+                </div>
             </div>
+
+
         </section>
     </main>
 
     <footer>
     </footer>
 
-    <script src="js/main.js?v=1.0.3"></script>
+    <script src="js/main.js?v=1.2.0"></script>
+    <script src="js/drawing-board.js?v=1.2.0"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const canvas = document.getElementById('drawing-canvas');
+            if (canvas) {
+                const drawingBoard = new DrawingBoard('drawing-canvas');
+
+                // Tool selection
+                const toolButtons = document.querySelectorAll('.tool-btn');
+                toolButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        toolButtons.forEach(btn => btn.classList.remove('active'));
+                        button.classList.add('active');
+                        drawingBoard.setTool(button.dataset.tool);
+                    });
+                });
+
+                // Color picker
+                const colorPicker = document.getElementById('color-picker');
+                colorPicker.addEventListener('input', (e) => {
+                    drawingBoard.setColor(e.target.value);
+                });
+
+                // Line width
+                const lineWidth = document.getElementById('line-width');
+                lineWidth.addEventListener('input', (e) => {
+                    drawingBoard.setLineWidth(e.target.value);
+                });
+
+                // Clear button
+                const clearButton = document.querySelector('.drawing-board-btn.clear');
+                clearButton.addEventListener('click', () => {
+                    if (confirm('¿Estás seguro de que quieres borrar todo el dibujo?')) {
+                        drawingBoard.clear();
+                    }
+                });
+
+                // Resize handling
+                window.addEventListener('resize', () => {
+                    canvas.width = canvas.offsetWidth;
+                    canvas.height = canvas.offsetHeight;
+                });
+            }
+        });
+    </script>
 </body>
 </html>

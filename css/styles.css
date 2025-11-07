@@ -4612,21 +4612,26 @@ main {
 }
 
 .crossword-cell input:focus {
-    outline: 1px solid rgba(42, 171, 226, 0.5);
-    background: rgba(42, 171, 226, 0.05);
+    outline: 2px solid var(--color-pink);
+    background: rgba(243, 135, 171, 0.1);
+    /* Mejor feedback visual en móviles */
+    transform: scale(1.02);
+    z-index: 10;
+    position: relative;
+    box-shadow: 0 0 0 1px rgba(243, 135, 171, 0.5), 0 2px 8px rgba(243, 135, 171, 0.3);
 }
 
 /* Resaltados fuertes */
 .crossword-cell input.cw-correct {
-    background: #2196F3 !important;
+    background: #15b157 !important;
     color: #fff !important;
-    box-shadow: 0 0 4px #2196F3, 0 0 10px rgba(33,150,243,.5);
+    box-shadow: 0 0 4px #15b157, 0 0 10px rgba(21,177,87,.5);
 }
 
 .crossword-cell input.cw-error {
-    background: #FF5722 !important;
+    background: #d61f2c !important;
     color: #fff !important;
-    box-shadow: 0 0 4px #FF5722, 0 0 10px rgba(255,87,34,.45);
+    box-shadow: 0 0 4px #d61f2c, 0 0 10px rgba(214,31,44,.45);
 }
 
 /* Celdas bloqueadas (primeras letras) */
@@ -4640,23 +4645,23 @@ main {
 
 .crossword-cell .number {
     position: absolute;
-    top: 2px;
+    top: 1px;
     left: 2px;
     font-size: 8px;
-    font-weight: 700;
-    color: #1565C0;
+    font-weight: bold;
+    color: #0b3d91; /* tono azul más oscuro para contraste general */
     z-index: 2;
     pointer-events: none;
-    background: none;
-    text-shadow: 0 0 2px rgba(255,255,255,0.8);
+    mix-blend-mode: normal;
+    text-shadow: 0 0 2px #fff, 0 0 3px #fff;
 }
 
-/* Cuando la celda está correcta o errónea, mantener números discretos */
+/* Cuando la celda está correcta o errónea, reforzamos el contraste del número */
 .crossword-cell input.cw-correct ~ .number,
 .crossword-cell input.cw-error ~ .number,
 .crossword-cell input.locked ~ .number {
     color: #fff;
-    text-shadow: 0 0 3px rgba(0,0,0,0.8);
+    text-shadow: 0 0 2px #000, 0 0 4px rgba(0,0,0,.6);
 }
 
 /* Aseguramos que el número quede visible si por alguna razón hereda mezcla */
@@ -5558,13 +5563,20 @@ main {
     }
     
     .crossword-cell input:focus {
-        outline: 1px solid rgba(42, 171, 226, 0.7);
-        background: rgba(42, 171, 226, 0.08);
+        outline: 3px solid var(--color-pink);
+        background: rgba(243, 135, 171, 0.2);
+        transform: scale(1.05);
+        z-index: 10;
+        position: relative;
+        box-shadow: 0 0 0 2px rgba(243, 135, 171, 0.5);
     }
     
     .crossword-cell .number {
-        font-size: 7px;
+        font-size: 8px;
         font-weight: 700;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 2px;
+        padding: 1px 2px;
     }
 }
 
