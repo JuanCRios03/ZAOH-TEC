@@ -28,11 +28,18 @@ class DrawingBoard {
     initializeCanvas() {
         this.canvas.width = this.canvas.offsetWidth;
         this.canvas.height = this.canvas.offsetHeight;
+
         this.ctx.strokeStyle = this.color;
         this.ctx.fillStyle = this.color;
         this.ctx.lineWidth = this.lineWidth;
         this.ctx.lineCap = 'round';
         this.ctx.lineJoin = 'round';
+
+        // Use a white paper-like background so bucket fill behaves predictably.
+        this.ctx.fillStyle = '#ffffff';
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+        this.ctx.fillStyle = this.color;
+
         // Save initial empty state in history
         try {
             const img = this.ctx.getImageData(0, 0, this.canvas.width, this.canvas.height);
@@ -98,11 +105,33 @@ class DrawingBoard {
         });
     }
 
-    startDrawing(e) {
+    // Convert viewport pointer coords to canvas pixel coords.
+    // This keeps drawing aligned even when CSS size and canvas internal size differ.
+    getCanvasPoint(e) {
         const rect = this.canvas.getBoundingClientRect();
+        const scaleX = rect.width ? (this.canvas.width / rect.width) : 1;
+        const scaleY = rect.height ? (this.canvas.height / rect.height) : 1;
+        return {
+            x: (e.clientX - rect.left) * scaleX,
+            y: (e.clientY - rect.top) * scaleY,
+            viewX: (e.clientX - rect.left),
+            viewY: (e.clientY - rect.top)
+        };
+    }
+
+    startDrawing(e) {
+        const point = this.getCanvasPoint(e);
+
+        if (this.currentTool === 'fill') {
+            this.floodFill(Math.floor(point.x), Math.floor(point.y));
+            this.imageData = this.ctx.getImageData(0, 0, this.canvas.width, this.canvas.height);
+            this.saveHistorySnapshot();
+            return;
+        }
+
         this.isDrawing = true;
-        this.startX = e.clientX - rect.left;
-        this.startY = e.clientY - rect.top;
+        this.startX = point.x;
+        this.startY = point.y;
         this.lastX = this.startX;
         this.lastY = this.startY;
 
@@ -132,9 +161,9 @@ class DrawingBoard {
     draw(e) {
         if (!this.isDrawing) return;
 
-        const rect = this.canvas.getBoundingClientRect();
-        const currentX = e.clientX - rect.left;
-        const currentY = e.clientY - rect.top;
+        const point = this.getCanvasPoint(e);
+        const currentX = point.x;
+        const currentY = point.y;
 
         // Restaurar el estado guardado antes de dibujar la vista previa
         if (this.currentTool !== 'pencil' && this.imageData) {
@@ -204,8 +233,9 @@ class DrawingBoard {
                     const shown = (this.forceAngleEnabled && typeof this.forcedAngle === 'number') ? Math.round(angleDeg) : Math.round(angleDeg);
                     // shown is the real angle; keep snapped value available for other UI if needed
                     this.angleIndicator.textContent = shown + '°';
-                    this.angleIndicator.style.left = (currentX + 12) + 'px';
-                    this.angleIndicator.style.top = (currentY + 12) + 'px';
+                    // Indicator is positioned in CSS pixels, not canvas internal pixels.
+                    this.angleIndicator.style.left = (point.viewX + 12) + 'px';
+                    this.angleIndicator.style.top = (point.viewY + 12) + 'px';
                 }
 
                 break;
@@ -275,6 +305,83 @@ class DrawingBoard {
 
     setTool(tool) {
         this.currentTool = tool;
+        this.canvas.style.cursor = 'crosshair';
+    }
+
+    hexToRgba(hexColor) {
+        const hex = (hexColor || '').replace('#', '').trim();
+        if (hex.length === 3) {
+            const r = parseInt(hex[0] + hex[0], 16);
+            const g = parseInt(hex[1] + hex[1], 16);
+            const b = parseInt(hex[2] + hex[2], 16);
+            return { r, g, b, a: 255 };
+        }
+        if (hex.length === 6) {
+            const r = parseInt(hex.slice(0, 2), 16);
+            const g = parseInt(hex.slice(2, 4), 16);
+            const b = parseInt(hex.slice(4, 6), 16);
+            return { r, g, b, a: 255 };
+        }
+        return { r: 0, g: 0, b: 0, a: 255 };
+    }
+
+    colorNear(data, offset, color, tolerance) {
+        return (
+            Math.abs(data[offset] - color.r) <= tolerance &&
+            Math.abs(data[offset + 1] - color.g) <= tolerance &&
+            Math.abs(data[offset + 2] - color.b) <= tolerance &&
+            Math.abs(data[offset + 3] - color.a) <= tolerance
+        );
+    }
+
+    floodFill(startX, startY) {
+        const width = this.canvas.width;
+        const height = this.canvas.height;
+        if (startX < 0 || startY < 0 || startX >= width || startY >= height) return;
+
+        const tolerance = 20;
+        const image = this.ctx.getImageData(0, 0, width, height);
+        const data = image.data;
+
+        const startOffset = (startY * width + startX) * 4;
+        const target = {
+            r: data[startOffset],
+            g: data[startOffset + 1],
+            b: data[startOffset + 2],
+            a: data[startOffset + 3]
+        };
+        const fill = this.hexToRgba(this.color);
+
+        if (this.colorNear(data, startOffset, fill, 0)) return;
+
+        const visited = new Uint8Array(width * height);
+        const stack = [startX, startY];
+
+        while (stack.length > 0) {
+            const y = stack.pop();
+            const x = stack.pop();
+
+            if (x < 0 || y < 0 || x >= width || y >= height) continue;
+
+            const idx = y * width + x;
+            if (visited[idx]) continue;
+
+            const offset = idx * 4;
+            if (!this.colorNear(data, offset, target, tolerance)) continue;
+
+            visited[idx] = 1;
+            data[offset] = fill.r;
+            data[offset + 1] = fill.g;
+            data[offset + 2] = fill.b;
+            data[offset + 3] = fill.a;
+
+            stack.push(x + 1, y);
+            stack.push(x - 1, y);
+            stack.push(x, y + 1);
+            stack.push(x, y - 1);
+        }
+
+        this.ctx.putImageData(image, 0, 0);
     }
 
     setRuler(enabled) {
@@ -339,7 +446,9 @@ class DrawingBoard {
     }
 
     clear() {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.ctx.fillStyle = '#ffffff';
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+        this.ctx.fillStyle = this.color;
         this.imageData = this.ctx.getImageData(0, 0, this.canvas.width, this.canvas.height);
         // Save snapshot AFTER clear so the cleared state is the latest and undo will restore previous
         this.saveHistorySnapshot();

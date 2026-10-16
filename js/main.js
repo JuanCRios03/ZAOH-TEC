@@ -855,82 +855,89 @@ class Crossword {
 
 // Funcionalidad del carrusel
 function initializeCarousel() {
-    const wrapper = document.querySelector('.carousel-wrapper');
-    const slides = document.querySelectorAll('.carousel-slide');
-    const prevButton = document.querySelector('.carousel-button.prev');
-    const nextButton = document.querySelector('.carousel-button.next');
-    const dotsContainer = document.querySelector('.carousel-dots');
-    
-    let currentSlide = 0;
-    const totalSlides = slides.length;
+    const carouselContainers = document.querySelectorAll('.carousel-container');
 
-    // Crear puntos indicadores
-    slides.forEach((_, index) => {
-        const dot = document.createElement('div');
-        dot.className = `dot ${index === 0 ? 'active' : ''}`;
-        dot.addEventListener('click', () => goToSlide(index));
-        dotsContainer.appendChild(dot);
-    });
+    carouselContainers.forEach((container) => {
+        const wrapper = container.querySelector('.carousel-wrapper');
+        const slides = container.querySelectorAll('.carousel-slide');
+        const prevButton = container.querySelector('.carousel-button.prev');
+        const nextButton = container.querySelector('.carousel-button.next');
+        const dotsContainer = container.querySelector('.carousel-dots');
 
-    // Función para actualizar la posición del carrusel
-    function updateCarousel() {
-        wrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
-        // Actualizar dots
-        document.querySelectorAll('.dot').forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentSlide);
+        if (!wrapper || !slides.length || !prevButton || !nextButton || !dotsContainer) {
+            return;
+        }
+
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+
+        dotsContainer.innerHTML = '';
+
+        // Crear puntos indicadores para este carrusel
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.className = `dot ${index === 0 ? 'active' : ''}`;
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
         });
-    }
 
-    // Función para ir a una diapositiva específica
-    function goToSlide(index) {
-        currentSlide = index;
-        updateCarousel();
-    }
+        // Función para actualizar la posición del carrusel
+        function updateCarousel() {
+            wrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dotsContainer.querySelectorAll('.dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
 
-    // Event listeners para los botones
-    prevButton.addEventListener('click', () => {
-        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-        updateCarousel();
-    });
+        // Función para ir a una diapositiva específica
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
 
-    nextButton.addEventListener('click', () => {
-        currentSlide = (currentSlide + 1) % totalSlides;
-        updateCarousel();
-    });
+        // Event listeners para los botones
+        prevButton.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        });
 
-    // Auto-play
-    let interval = setInterval(() => {
-        currentSlide = (currentSlide + 1) % totalSlides;
-        updateCarousel();
-    }, 5000);
+        nextButton.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        });
 
-    // Pausar auto-play cuando el mouse está sobre el carrusel
-    wrapper.addEventListener('mouseenter', () => clearInterval(interval));
-    wrapper.addEventListener('mouseleave', () => {
-        interval = setInterval(() => {
+        // Auto-play
+        let interval = setInterval(() => {
             currentSlide = (currentSlide + 1) % totalSlides;
             updateCarousel();
         }, 5000);
-    });
 
-    // Soporte para gestos táctiles
-    let touchStartX = 0;
-    let touchEndX = 0;
+        // Pausar auto-play cuando el mouse está sobre el carrusel
+        container.addEventListener('mouseenter', () => clearInterval(interval));
+        container.addEventListener('mouseleave', () => {
+            interval = setInterval(() => {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateCarousel();
+            }, 5000);
+        });
 
-    wrapper.addEventListener('touchstart', e => {
-        touchStartX = e.changedTouches[0].screenX;
-    });
+        // Soporte para gestos táctiles
+        let touchStartX = 0;
+        let touchEndX = 0;
 
-    wrapper.addEventListener('touchend', e => {
-        touchEndX = e.changedTouches[0].screenX;
-        if (touchStartX - touchEndX > 50) {
-            // Deslizar a la izquierda
-            currentSlide = (currentSlide + 1) % totalSlides;
-        } else if (touchEndX - touchStartX > 50) {
-            // Deslizar a la derecha
-            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-        }
-        updateCarousel();
+        wrapper.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        wrapper.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 50) {
+                currentSlide = (currentSlide + 1) % totalSlides;
+            } else if (touchEndX - touchStartX > 50) {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            }
+            updateCarousel();
+        });
     });
 }
 

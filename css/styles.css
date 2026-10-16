@@ -468,7 +468,7 @@ body {
     .nav-card h3 { font-size: clamp(1.2rem, 2.8vw, 1.4rem); }
     .nav-card p { font-size: clamp(0.9rem, 2.2vw, 1.05rem); }
     .feature-tag { font-size: 0.7rem; }
-    .hero-logo { width: clamp(180px, 55vw, 260px); }
+    .hero-logo { width: clamp(220px, 55vw, 340px); }
     .hero-title { font-size: clamp(2.2rem, 6vw, 2.8rem); }
     .hero-text { font-size: clamp(1.2rem, 4.2vw, 1.6rem); }
     .hero-description { font-size: clamp(1rem, 2.8vw, 1.15rem); padding: 0 4px; }
@@ -1612,7 +1612,7 @@ p, span, a, li, input, button, textarea {
 /* Header and Navigation */
 header {
     background-color: white;
-    padding: 1rem 0;
+    padding: 0.3rem 0;
     position: fixed;
     width: 100%;
     top: 0;
@@ -1635,7 +1635,7 @@ header {
 }
 
 .nav-logo {
-    height: 50px;
+    height: 90px;
     width: auto;
     transition: transform 0.3s ease;
 }
@@ -1723,7 +1723,7 @@ header {
 }
 
 .hero-logo {
-    width: 400px;
+    width: 520px;
     height: auto;
     margin-bottom: 3rem;
     animation: float 6s ease-in-out infinite;
@@ -1862,13 +1862,13 @@ header {
     }
     
     .hero-logo {
-        width: 150px;
+        width: 240px;
     }
 }
 
 /* Main Content */
 main {
-    margin-top: 80px;
+    margin-top: 100px;
     padding: 2rem;
 }
 
@@ -2123,7 +2123,7 @@ main {
     }
     
     .nav-logo {
-        height: 40px;
+        height: 75px;
     }
     
     /* Hamburger en negro para mejor visibilidad */
@@ -2162,7 +2162,7 @@ main {
     }
     
     .nav-logo {
-        height: 45px;
+        height: 80px;
     }
 }
 
@@ -5844,7 +5844,7 @@ main {
     }
     
     .hero-logo {
-        max-width: 150px;
+        max-width: 260px;
         margin-bottom: 1rem;
     }
     

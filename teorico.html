@@ -12,13 +12,13 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>ZAOH-TEC - Dibujo Teórico</title>
-    <link rel="icon" type="image/jpeg" href="assets/images/zaoh-tec-logo.jpg">
-    <link rel="shortcut icon" type="image/jpeg" href="assets/images/zaoh-tec-logo.jpg">
-    <link rel="apple-touch-icon" href="assets/images/zaoh-tec-logo.jpg">
+    <link rel="icon" type="image/jpeg" href="assets/images/logo_zaoh_official.png">
+    <link rel="shortcut icon" type="image/jpeg" href="assets/images/logo_zaoh_official.png">
+    <link rel="apple-touch-icon" href="assets/images/logo_zaoh_official.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css?v=1.2.0">
-    <link rel="stylesheet" href="css/drawing-board.css?v=1.2.0">
+    <link rel="stylesheet" href="css/styles.css?v=1.2.1">
+    <link rel="stylesheet" href="css/drawing-board.css?v=1.2.1">
 </head>
 <body class="theoretical-page">
     <!-- Contenedor de fondo dinámico: gradientes y blobs interactivos -->
@@ -34,7 +34,7 @@
         <nav class="main-nav">
             <div class="nav-left">
                 <a href="index.html">
-                    <img src="assets/images/zaoh-tec-logo.jpg" alt="ZAOH-TEC Logo" class="nav-logo">
+                    <img src="assets/images/logo_zaoh_official.png" alt="ZAOH-TEC Logo" class="nav-logo">
                 </a>
             </div>
             <button class="mobile-menu-toggle" aria-label="Abrir menú">
@@ -148,40 +148,52 @@
                 <!-- Undécimo Grado -->
                 <div class="grade-section">
                     <h3><i class="fas fa-graduation-cap"></i> Undécimo Grado</h3>
-                    <div class="construction-section">
-                        <div class="construction-container">
-                            <div class="construction-icon">
-                                <i class="fas fa-hard-hat"></i>
-                                <i class="fas fa-tools"></i>
-                            </div>
-                            <h4 class="construction-title">
-                                <i class="fas fa-hammer"></i>
-                                ¡EN CONSTRUCCIÓN!
-                                <i class="fas fa-wrench"></i>
-                            </h4>
-                            <p class="construction-text">
-                                🚧 <strong>Misterio del Futuro</strong> 🚧<br>
-                                El contenido de undécimo grado está siendo cuidadosamente diseñado...<br>
-                                <span class="highlight">¡El próximo año descubrirás qué increíbles proyectos te esperan!</span>
-                            </p>
-                            <div class="construction-details">
-                                <div class="detail-item">
-                                    <i class="fas fa-lightbulb"></i>
-                                    <span>Proyectos innovadores en desarrollo</span>
+                    <div class="topics-grid">
+                        <div class="topic-card technical">
+                            <h4><i class="fas fa-cog"></i> Dibujo Técnico</h4>
+                            <ul>
+                                <li><strong>Dibujo arquitectónico:</strong> Representación de planos, fachadas, cortes y detalles de edificaciones</li>
+                                <li><strong>Calidad de líneas:</strong> Uso correcto de grosores, limpieza y jerarquía en los planos</li>
+                                <li><strong>Planos arquitectónicos:</strong> Lectura e interpretación de plantas, elevaciones y secciones</li>
+                                <li><strong>Elementos estructurales:</strong> Muros, vigas, columnas, puertas, ventanas y cubiertas</li>
+                                <li><strong>Acotado y simbología:</strong> Medidas, ejes y convenciones utilizadas en arquitectura</li>
+                            </ul>
+                        </div>
+
+                        <div class="topic-card artistic">
+                            <h4><i class="fas fa-paint-brush"></i> Dibujo Artístico</h4>
+                            <ul>
+                                <li><strong>Elementos arquitectónicos:</strong> Dibujo de ventana, puertas, puerta corredora, puerta plegable y otros detalles</li>
+                                <li><strong>Lienzos:</strong> Preparación, composición y desarrollo de obras sobre bastidor</li>
+                                <li><strong>Óleos:</strong> Aplicación de capas, mezcla de color y acabados en pintura al óleo</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="gallery-section">
+                        <h3><i class="fas fa-images"></i> Muestra Visual de Undécimo</h3>
+                        <div class="carousel-container">
+                            <div class="carousel-wrapper">
+                                <div class="carousel-slide">
+                                    <img src="assets/images/UndecimoImage.jpg" alt="Undécimo Imagen 1" class="carousel-img">
                                 </div>
-                                <div class="detail-item">
-                                    <i class="fas fa-rocket"></i>
-                                    <span>Técnicas avanzadas por revelar</span>
+                                <div class="carousel-slide">
+                                    <img src="assets/images/UndecimoImage2.jpg" alt="Undécimo Imagen 2" class="carousel-img">
                                 </div>
-                                <div class="detail-item">
-                                    <i class="fas fa-star"></i>
-                                    <span>Experiencias únicas esperándote</span>
+                                <div class="carousel-slide">
+                                    <img src="assets/images/UndecimoImage3.jpg" alt="Undécimo Imagen 3" class="carousel-img">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="assets/images/UndecimoImage4.jpg" alt="Undécimo Imagen 4" class="carousel-img">
                                 </div>
                             </div>
-                            <div class="countdown-text">
-                                <i class="fas fa-calendar-alt"></i>
-                                <strong>Próximamente en 2026...</strong>
-                            </div>
+                            <button class="carousel-button prev" aria-label="Imagen anterior">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-button next" aria-label="Imagen siguiente">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="carousel-dots"></div>
                         </div>
                     </div>
                 </div>
@@ -261,8 +273,8 @@
     <footer>
     </footer>
 
-    <script src="js/main.js?v=1.2.0"></script>
-    <script src="js/drawing-board.js?v=1.2.0"></script>
+    <script src="js/main.js?v=1.2.1"></script>
+    <script src="js/drawing-board.js?v=1.2.1"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const canvas = document.getElementById('drawing-canvas');

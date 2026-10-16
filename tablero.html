@@ -12,13 +12,13 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>ZAOH-TEC - Tablero de Dibujo</title>
-    <link rel="icon" type="image/jpeg" href="assets/images/zaoh-tec-logo.jpg">
-    <link rel="shortcut icon" type="image/jpeg" href="assets/images/zaoh-tec-logo.jpg">
-    <link rel="apple-touch-icon" href="assets/images/zaoh-tec-logo.jpg">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap">
+    <link rel="icon" type="image/jpeg" href="assets/images/logo_zaoh_official.png">
+    <link rel="shortcut icon" type="image/jpeg" href="assets/images/logo_zaoh_official.png">
+    <link rel="apple-touch-icon" href="assets/images/logo_zaoh_official.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css?v=1.2.0">
-    <link rel="stylesheet" href="css/drawing-board.css?v=1.2.0">
+    <link rel="stylesheet" href="css/styles.css?v=1.2.1">
+    <link rel="stylesheet" href="css/drawing-board.css?v=1.2.1">
 </head>
 <body class="theoretical-page">
     <!-- Contenedor de fondo dinámico: gradientes y blobs interactivos -->
@@ -34,7 +34,7 @@
         <nav class="main-nav">
             <div class="nav-left">
                 <a href="index.html">
-                    <img src="assets/images/zaoh-tec-logo.jpg" alt="ZAOH-TEC Logo" class="nav-logo">
+                    <img src="assets/images/logo_zaoh_official.png" alt="ZAOH-TEC Logo" class="nav-logo">
                 </a>
             </div>
             <button class="mobile-menu-toggle" aria-label="Abrir menú">
@@ -55,16 +55,40 @@
         <section class="section-content">
             <!-- Drawing Board Section -->
             <div class="drawing-board-section">
-                <h2 class="section-title">Tablero de Dibujo Creativo</h2>
+                <h2 class="section-title">Laboratorio de Dibujo ZAOH-TEC</h2>
+                <p class="board-subtitle">Explora el modo <strong>Artistico</strong> para crear libremente o el modo <strong>Tecnico</strong> para practicar precision, lineas y figuras.</p>
+
+                <div class="board-top-panel">
+                    <div class="mode-switch" role="group" aria-label="Seleccionar modo de dibujo">
+                        <button class="mode-btn active" data-mode="artistic">
+                            <i class="fas fa-palette"></i>
+                            Modo Artistico
+                        </button>
+                        <button class="mode-btn" data-mode="technical">
+                            <i class="fas fa-ruler-combined"></i>
+                            Modo Tecnico
+                        </button>
+                    </div>
+
+                    <div class="mini-challenge" aria-live="polite">
+                        <span class="challenge-label"><i class="fas fa-star"></i> Reto Express</span>
+                        <p id="challenge-text">Dibuja un animal fantastico usando solo circulos y lineas.</p>
+                        <button id="new-challenge-btn" class="mini-challenge-btn">
+                            <i class="fas fa-dice"></i>
+                            Otro reto
+                        </button>
+                    </div>
+                </div>
+
                 <div class="drawing-board-container">
                     <div class="drawing-board-wrapper">
                         <canvas id="drawing-canvas"></canvas>
+                        <div id="board-grid-overlay" class="board-grid-overlay" aria-hidden="true"></div>
                         <div id="angle-indicator" class="angle-indicator" aria-hidden="true">0°</div>
-                        <!-- Regla overlay: intenta cargar regla.png, si falla usa regla graduada.webp -->
-                        <img id="ruler-image" src="assets/images/regla.png" alt="Regla" onerror="this.onerror=null; this.src='assets/images/regla graduada.webp'" />
                     </div>
+
                     <div class="drawing-controls">
-                        <div class="control-group">
+                        <div class="control-group tools-group">
                             <button class="tool-btn active" data-tool="pencil">
                                 <i class="fas fa-pencil-alt"></i> Lápiz
                             </button>
@@ -77,14 +101,53 @@
                             <button class="tool-btn" data-tool="line">
                                 <i class="fas fa-minus"></i> Línea
                             </button>
+                            <button class="tool-btn" data-tool="fill" title="Rellenar color">
+                                <i class="fas fa-fill-drip"></i> Balde
+                            </button>
                         </div>
-                        <div class="control-group">
-                            <label for="color-picker">Color:</label>
-                            <input type="color" id="color-picker" value="#000000">
-                            <label for="line-width">Grosor:</label>
+
+                        <div class="control-group palette-group">
+                            <label class="control-title">Colores Rapidos:</label>
+                            <div class="swatch-list" role="group" aria-label="Paleta de color rapida">
+                                <button class="swatch-btn active" data-color="#2f3a8f" style="--swatch:#2f3a8f" title="Azul"></button>
+                                <button class="swatch-btn" data-color="#f05a7e" style="--swatch:#f05a7e" title="Rosa"></button>
+                                <button class="swatch-btn" data-color="#f7b32b" style="--swatch:#f7b32b" title="Amarillo"></button>
+                                <button class="swatch-btn" data-color="#00a676" style="--swatch:#00a676" title="Verde"></button>
+                                <button class="swatch-btn" data-color="#ff7f11" style="--swatch:#ff7f11" title="Naranja"></button>
+                                <button class="swatch-btn" data-color="#1f1f1f" style="--swatch:#1f1f1f" title="Negro"></button>
+                                <button class="swatch-btn" data-color="#ffffff" style="--swatch:#ffffff" title="Blanco"></button>
+                                <button class="swatch-btn" data-color="#7f8c8d" style="--swatch:#7f8c8d" title="Gris"></button>
+                                <button class="swatch-btn" data-color="#9b5de5" style="--swatch:#9b5de5" title="Violeta"></button>
+                                <button class="swatch-btn" data-color="#00bbf9" style="--swatch:#00bbf9" title="Celeste"></button>
+                                <button class="swatch-btn" data-color="#38b000" style="--swatch:#38b000" title="Verde Lima"></button>
+                                <button class="swatch-btn" data-color="#f15bb5" style="--swatch:#f15bb5" title="Fucsia"></button>
+                                <button class="swatch-btn" data-color="#ff595e" style="--swatch:#ff595e" title="Rojo"></button>
+                                <button class="swatch-btn" data-color="#ffca3a" style="--swatch:#ffca3a" title="Dorado"></button>
+                                <button class="swatch-btn" data-color="#8ac926" style="--swatch:#8ac926" title="Verde Pasto"></button>
+                                <button class="swatch-btn" data-color="#1982c4" style="--swatch:#1982c4" title="Azul Claro"></button>
+                                <button class="swatch-btn" data-color="#6a4c93" style="--swatch:#6a4c93" title="Morado Oscuro"></button>
+                                <button class="swatch-btn" data-color="#c1121f" style="--swatch:#c1121f" title="Rojo Vino"></button>
+                            </div>
+                        </div>
+
+                        <div class="control-group fine-controls-group">
+                            <label for="color-picker" class="control-title">Color Personalizado:</label>
+                            <input type="color" id="color-picker" value="#000000" aria-label="Seleccionar color personalizado">
+                            <span id="selected-color-value" class="selected-color-value">#000000</span>
+                            <label for="line-width" class="control-title">Grosor:</label>
                             <input type="range" id="line-width" min="1" max="20" value="2">
+                            <span id="line-width-value" class="line-width-value">2 px</span>
                         </div>
-                        <div class="control-group">
+
+                        <div class="control-group size-preset-group">
+                            <label class="control-title">Brochas:</label>
+                            <button class="size-chip" data-size="2">Fino</button>
+                            <button class="size-chip active" data-size="5">Medio</button>
+                            <button class="size-chip" data-size="10">Grueso</button>
+                            <button class="size-chip" data-size="16">Marker</button>
+                        </div>
+
+                        <div class="control-group action-group">
                             <button id="undo-btn" class="drawing-board-btn" title="Deshacer (Ctrl+Z)">
                                 <i class="fas fa-undo"></i> Deshacer
                             </button>
@@ -95,13 +158,17 @@
                                 <i class="fas fa-trash"></i> Limpiar
                             </button>
                         </div>
-                        <div class="control-group" style="align-items:center;gap:8px;">
-                            <label for="angle-input" style="font-size:0.9rem;">Ángulo (°):</label>
-                            <input id="angle-input" type="number" min="-360" max="360" step="1" value="0" style="width:80px;">
-                            <label style="display:inline-flex;align-items:center;gap:6px;margin-left:6px;">
-                                <input id="force-angle-checkbox" type="checkbox"> Fijar ángulo
+
+                        <div class="control-group technical-group">
+                            <label for="angle-input" class="control-title">Angulo (°):</label>
+                            <input id="angle-input" type="number" min="-360" max="360" step="1" value="0">
+                            <label class="inline-check">
+                                <input id="force-angle-checkbox" type="checkbox"> Fijar angulo
                             </label>
-                            <span id="forced-angle-display" style="min-width:40px;text-align:center;margin-left:6px;">0°</span>
+                            <label class="inline-check">
+                                <input id="grid-toggle-checkbox" type="checkbox"> Cuadricula
+                            </label>
+                            <span id="forced-angle-display" class="forced-angle-display">0°</span>
                         </div>
                     </div>
                 </div>
@@ -109,8 +176,8 @@
         </section>
     </main>
 
-    <script src="js/main.js?v=1.2.0"></script>
-    <script src="js/drawing-board.js?v=1.2.0"></script>
+    <script src="js/main.js?v=1.2.1"></script>
+    <script src="js/drawing-board.js?v=1.2.1"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const canvas = document.getElementById('drawing-canvas');
@@ -120,7 +187,33 @@
                 const angleIndicator = document.getElementById('angle-indicator');
                 if (angleIndicator) drawingBoard.setAngleIndicator(angleIndicator);
 
-                // Angle input + force-angle checkbox (replaces the visual ruler)
+                const modeButtons = document.querySelectorAll('.mode-btn[data-mode]');
+                const challengeText = document.getElementById('challenge-text');
+                const newChallengeBtn = document.getElementById('new-challenge-btn');
+                const artisticChallenges = [
+                    'Dibuja un animal fantastico usando solo circulos y lineas.',
+                    'Crea un paisaje de otro planeta con 3 colores.',
+                    'Haz un personaje inventado que tenga superpoderes.',
+                    'Dibuja una casa en una nube con detalles divertidos.'
+                ];
+                const technicalChallenges = [
+                    'Traza un puente usando lineas paralelas y rectangulos.',
+                    'Diseña un robot con figuras geometricas basicas.',
+                    'Dibuja un plano simple de tu habitacion desde arriba.',
+                    'Construye una torre en isometria usando lineas a 30 grados.'
+                ];
+
+                const lineWidthValue = document.getElementById('line-width-value');
+                const selectedColorValue = document.getElementById('selected-color-value');
+                const gridToggleCheckbox = document.getElementById('grid-toggle-checkbox');
+                const gridOverlay = document.getElementById('board-grid-overlay');
+
+                function updateSelectedColor(color) {
+                    if (selectedColorValue && color) {
+                        selectedColorValue.textContent = String(color).toUpperCase();
+                    }
+                }
+
                 const angleInput = document.getElementById('angle-input');
                 const forceAngleCheckbox = document.getElementById('force-angle-checkbox');
                 const forcedAngleDisplay = document.getElementById('forced-angle-display');
@@ -140,6 +233,83 @@
                 if (forceAngleCheckbox) {
                     forceAngleCheckbox.addEventListener('change', (ev) => {
                         drawingBoard.setForceAngleEnabled(!!ev.target.checked);
+                    });
+                }
+
+                // Mode presets for artistic and technical practice
+                function setChallenge(mode) {
+                    if (!challengeText) return;
+                    const source = mode === 'technical' ? technicalChallenges : artisticChallenges;
+                    const randomIndex = Math.floor(Math.random() * source.length);
+                    challengeText.textContent = source[randomIndex];
+                }
+
+                function applyMode(mode) {
+                    const isTechnical = mode === 'technical';
+                    document.body.classList.toggle('board-mode-technical', isTechnical);
+                    document.body.classList.toggle('board-mode-artistic', !isTechnical);
+
+                    if (isTechnical) {
+                        drawingBoard.setTool('line');
+                        drawingBoard.setColor('#1f1f1f');
+                        drawingBoard.setLineWidth(2);
+                        if (colorPicker) colorPicker.value = '#1f1f1f';
+                        updateSelectedColor('#1f1f1f');
+                        if (lineWidth) lineWidth.value = '2';
+                        if (lineWidthValue) lineWidthValue.textContent = '2 px';
+                        if (angleInput) angleInput.value = '30';
+                        drawingBoard.setForcedAngle(30);
+                        drawingBoard.setForceAngleEnabled(true);
+                        if (forceAngleCheckbox) forceAngleCheckbox.checked = true;
+                        if (forcedAngleDisplay) forcedAngleDisplay.textContent = '30°';
+                        if (gridOverlay) gridOverlay.classList.add('visible');
+                        if (gridToggleCheckbox) gridToggleCheckbox.checked = true;
+                    } else {
+                        drawingBoard.setTool('pencil');
+                        drawingBoard.setColor('#2f3a8f');
+                        drawingBoard.setLineWidth(5);
+                        if (colorPicker) colorPicker.value = '#2f3a8f';
+                        updateSelectedColor('#2f3a8f');
+                        if (lineWidth) lineWidth.value = '5';
+                        if (lineWidthValue) lineWidthValue.textContent = '5 px';
+                        drawingBoard.setForceAngleEnabled(false);
+                        if (forceAngleCheckbox) forceAngleCheckbox.checked = false;
+                        if (gridOverlay) gridOverlay.classList.remove('visible');
+                        if (gridToggleCheckbox) gridToggleCheckbox.checked = false;
+                    }
+
+                    document.querySelectorAll('.tool-btn[data-tool]').forEach(btn => {
+                        btn.classList.toggle('active', btn.dataset.tool === (isTechnical ? 'line' : 'pencil'));
+                    });
+
+                    document.querySelectorAll('.size-chip[data-size]').forEach(chip => {
+                        const activeSize = isTechnical ? '2' : '5';
+                        chip.classList.toggle('active', chip.dataset.size === activeSize);
+                    });
+
+                    document.querySelectorAll('.swatch-btn[data-color]').forEach(swatch => {
+                        const activeColor = isTechnical ? '#1f1f1f' : '#2f3a8f';
+                        swatch.classList.toggle('active', swatch.dataset.color.toLowerCase() === activeColor);
+                    });
+
+                    modeButtons.forEach(btn => {
+                        btn.classList.toggle('active', btn.dataset.mode === mode);
+                    });
+
+                    setChallenge(mode);
+                }
+
+                modeButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        applyMode(button.dataset.mode);
+                    });
+                });
+
+                if (newChallengeBtn) {
+                    newChallengeBtn.addEventListener('click', () => {
+                        const activeModeButton = document.querySelector('.mode-btn.active');
+                        const mode = activeModeButton ? activeModeButton.dataset.mode : 'artistic';
+                        setChallenge(mode);
                     });
                 }
 
@@ -181,13 +351,57 @@
                 const colorPicker = document.getElementById('color-picker');
                 colorPicker.addEventListener('input', (e) => {
                     drawingBoard.setColor(e.target.value);
+                    updateSelectedColor(e.target.value);
+                    document.querySelectorAll('.swatch-btn').forEach(btn => btn.classList.remove('active'));
+                });
+
+                // Quick swatches
+                const swatches = document.querySelectorAll('.swatch-btn[data-color]');
+                swatches.forEach(swatch => {
+                    swatch.addEventListener('click', () => {
+                        const picked = swatch.dataset.color;
+                        if (picked) {
+                            drawingBoard.setColor(picked);
+                            colorPicker.value = picked;
+                            updateSelectedColor(picked);
+                            swatches.forEach(item => item.classList.remove('active'));
+                            swatch.classList.add('active');
+                        }
+                    });
                 });
 
                 // Line width
                 const lineWidth = document.getElementById('line-width');
                 lineWidth.addEventListener('input', (e) => {
                     drawingBoard.setLineWidth(e.target.value);
+                    if (lineWidthValue) {
+                        lineWidthValue.textContent = `${e.target.value} px`;
+                    }
+                    document.querySelectorAll('.size-chip').forEach(chip => chip.classList.remove('active'));
                 });
+
+                // Quick brush sizes
+                const sizeChips = document.querySelectorAll('.size-chip[data-size]');
+                sizeChips.forEach(chip => {
+                    chip.addEventListener('click', () => {
+                        const size = Number(chip.dataset.size);
+                        if (!Number.isNaN(size)) {
+                            drawingBoard.setLineWidth(size);
+                            lineWidth.value = String(size);
+                            if (lineWidthValue) lineWidthValue.textContent = `${size} px`;
+                            sizeChips.forEach(item => item.classList.remove('active'));
+                            chip.classList.add('active');
+                        }
+                    });
+                });
+
+                if (gridToggleCheckbox) {
+                    gridToggleCheckbox.addEventListener('change', (ev) => {
+                        if (gridOverlay) {
+                            gridOverlay.classList.toggle('visible', !!ev.target.checked);
+                        }
+                    });
+                }
 
                 // Clear button
                 const clearButton = document.querySelector('.drawing-board-btn.clear');
@@ -198,11 +412,8 @@
 
                 // (visual ruler removed) — angle is controlled via the input and checkbox above
 
-                // Resize handling
-                window.addEventListener('resize', () => {
-                    canvas.width = canvas.offsetWidth;
-                    canvas.height = canvas.offsetHeight;
-                });
+                // Initial setup
+                applyMode('artistic');
             }
         });
     </script>
